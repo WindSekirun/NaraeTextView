@@ -125,3 +125,10 @@ TwitterLinkPreprocessor.process(textView, "", colorset, new OnProcessListener() 
 
 ## 기여 안내
 기여는 언제든지 환영합니다! [Issue Tracker](https://github.com/WindSekirun/NaraeTextView/issues) [Pull Request](https://github.com/WindSekirun/NaraeTextView/pulls) 전부 환영합니다!
+
+## 다른 나래 라이브러리
+* **[NaraePreference](https://github.com/WindSekirun/NaraePreference)** - SharedPreference Wrapper
+* **[NaraeAsynchronous](http://www.windsekirun.wo.tc/NaraeAsynchronous)** - Thread Executor
+* **[NaraePicker](http://www.windsekirun.wo.tc/NaraePicker)** - Multi Image Select
+* **[NaraeResizer](https://github.com/WindSekirun/NaraeResizer)** - Bitmap Resizer
+* **[NaraeTextView](http://www.windsekirun.wo.tc/NaraeTextView)** - Clickable TextView
