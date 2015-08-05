@@ -22,15 +22,26 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <com.github.windsekirun.naraetextview.NaraeTextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
         android:layout_below="@+id/button"
-        android:layout_marginTop="10dip"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="false"
-        android:id="@+id/textView"
-        android:textAppearance="@android:style/TextAppearance.Large" />
+        android:layout_alignParentBottom="true">
+
+        <com.github.windsekirun.naraetextview.NaraeTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button"
+            android:layout_marginTop="10dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="false"
+            android:id="@+id/textView"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+    </ScrollView>
 </RelativeLayout>

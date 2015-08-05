@@ -83,13 +83,6 @@ public class ClickableComplier {
         text.setSpan(linkSpan, range.start, range.end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
-    public void removePreviousSpans() {
-        ClickableSpan[] toRemoveSpans = mSpannable.getSpans(0, mSpannable.length(), ClickableSpan.class);
-        for (ClickableSpan toRemoveSpan : toRemoveSpans) {
-            mSpannable.removeSpan(toRemoveSpan);
-        }
-    }
-
     public void convertPatternsToLinks() {
         foundList.clear();
         foundList.addAll(lists);
@@ -123,8 +116,12 @@ public class ClickableComplier {
 
         convertPatternsToLinks();
 
-        for (Clickable clickable : foundList) {
-            addLinkToSpan(clickable);
+        if (foundList.size() != 0) {
+            for (Clickable clickable : foundList) {
+                addLinkToSpan(clickable);
+            }
+        } else {
+            mSpannable = SpannableString.valueOf(mText);
         }
     }
 
