@@ -40,20 +40,22 @@ public class Clickable {
         return text;
     }
 
-    public void setPattern(Pattern pattern) {
+    public Clickable setPattern(Pattern pattern) {
         this.pattern = pattern;
+        return this;
     }
 
     public Clickable setText(String text) {
         this.text = text;
-        return null;
+        return this;
     }
 
     public OnLinkClickListener getLinkClickListener() {
         return linkClickListener;
     }
 
-    public void setLinkClickListener(OnLinkClickListener linkClickListener) {
+    public Clickable setLinkClickListener(OnLinkClickListener linkClickListener) {
         this.linkClickListener = linkClickListener;
+        return this;
     }
 }
