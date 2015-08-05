@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class TwitterLinkPreprocessor {
 
-    public static NaraeTextView process(NaraeTextView narae, String text, final OnProcessListener listener) {
+    public static void process(NaraeTextView narae, String text, final OnProcessListener listener) {
         final ArrayList<Clickable> list = new ArrayList<>();
 
         Clickable hashTagClickable = BuildClickable.getClickableObject(PatternKind.HASHTAG, new OnLinkClickListener() {
@@ -44,6 +44,5 @@ public class TwitterLinkPreprocessor {
         list.add(urlClickable);
 
         narae.setText(text).addPatterns(list).build();
-        return narae;
     }
 }
