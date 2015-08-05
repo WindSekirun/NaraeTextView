@@ -3,7 +3,7 @@
 특정한 정규식을 이용해 텍스트뷰에서 정규식과 일치하는 부분에 리스너를 달 수 있는 간단한 라이브러리 입니다.
 
 ## 샘플
-[alt text](http://i.imgur.com/nOpJuMgm.png)
+![alt text](http://i.imgur.com/nOpJuMgm.png)
 
 [이 곳](https://github.com/WindSekirun/NaraeTextView/releases) 에서 확인이 가능합니다.
 
