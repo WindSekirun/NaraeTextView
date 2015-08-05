@@ -14,8 +14,6 @@ import com.github.windsekirun.naraetextview.preprocessor.ColorSets;
 import com.github.windsekirun.naraetextview.preprocessor.OnProcessListener;
 import com.github.windsekirun.naraetextview.preprocessor.TwitterLinkPreprocessor;
 
-import org.apache.commons.lang3.StringUtils;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -36,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.root)
     RelativeLayout root;
-
-    ColorSets colorSets;
+    ColorSets colorSets = new ColorSets();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

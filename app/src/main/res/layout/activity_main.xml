@@ -30,6 +30,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/textView" />
+        android:layout_alignParentBottom="false"
+        android:id="@+id/textView"
+        android:textAppearance="@android:style/TextAppearance.Large" />
 </RelativeLayout>

@@ -15,13 +15,13 @@ public class BuildPattern {
         Pattern toBuild = null;
         switch (pk) {
             case HASHTAG:
-                toBuild = Pattern.compile("(https?://)?([\\da-zA-Z\\.-]+)\\.([a-zA-Z])([/\\w\\.-_]*)*/?");
+                toBuild = Pattern.compile("#([0-9a-zA-Z가-힣_])+");
                 break;
             case USERNAME:
                 toBuild = Pattern.compile("@([0-9a-zA-Z_])+");
                 break;
             case HTTP:
-                toBuild = Pattern.compile("#([0-9a-zA-Z가-힣_])+");
+                toBuild = Pattern.compile("(https?://)?([\\da-zA-Z\\.-]+)\\.([a-zA-Z])([/\\w\\.-_]*)*/?");
                 break;
         }
         return toBuild;
