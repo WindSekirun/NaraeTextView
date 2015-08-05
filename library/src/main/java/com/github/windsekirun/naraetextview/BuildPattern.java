@@ -8,12 +8,8 @@ import java.util.regex.Pattern;
  * Created by IrenSekirun on 15. 8. 5..
  */
 public class BuildPattern {
-
-    public enum PatternKind {
-        HASHTAG, USERNAME, HTTP
-    }
     
-    public Pattern getPattern(PatternKind pk) {
+    public static Pattern getPattern(PatternKind pk) {
         Pattern toBuild = null;
         switch (pk) {
             case HASHTAG:
