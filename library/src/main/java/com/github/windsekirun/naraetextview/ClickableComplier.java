@@ -15,37 +15,25 @@ import java.util.regex.Pattern;
  * Created by WindSekirun on 15. 8. 5..
  */
 public class ClickableComplier {
-
-    public enum ViewType {
-        TEXT_VIEW, EDIT_TEXT
-    }
-
-    protected ArrayList<Clickable> mLinks = new ArrayList<>();
-    protected ArrayList<Clickable> mFoundLinks = new ArrayList<>();
+    protected ArrayList<Clickable> lists = new ArrayList<>();
+    protected ArrayList<Clickable> foundList = new ArrayList<>();
 
     protected String mText;
     protected Spannable mSpannable;
-
-    private ViewType mViewType;
-
-    public ClickableComplier(ViewType viewType) {
-        this.mViewType = viewType;
-    }
-
     public ArrayList<Clickable> getLinks() {
-        return mLinks;
+        return lists;
     }
 
     public void setLinks(ArrayList<Clickable> mLinks) {
-        this.mLinks = mLinks;
+        this.lists = mLinks;
     }
 
     public ArrayList<Clickable> getFoundLinks() {
-        return mFoundLinks;
+        return foundList;
     }
 
     public void setFoundLinks(ArrayList<Clickable> mFoundLinks) {
-        this.mFoundLinks = mFoundLinks;
+        this.foundList = mFoundLinks;
     }
 
     public String getText() {
@@ -101,16 +89,16 @@ public class ClickableComplier {
     }
 
     public void convertPatternsToLinks() {
-        mFoundLinks.clear();
-        mFoundLinks.addAll(mLinks);
+        foundList.clear();
+        foundList.addAll(lists);
 
-        int size = mFoundLinks.size();
+        int size = foundList.size();
         int i = 0;
         while (i < size) {
-            if (mFoundLinks.get(i).getPattern() != null) {
-                addLinksFromPattern(mFoundLinks.get(i));
+            if (foundList.get(i).getPattern() != null) {
+                addLinksFromPattern(foundList.get(i));
 
-                mFoundLinks.remove(i);
+                foundList.remove(i);
                 size--;
             } else {
                 i++;
@@ -124,21 +112,16 @@ public class ClickableComplier {
 
         while (m.find()) {
             Clickable clickable = new Clickable(clickableWithPattern).setText(m.group());
-            mFoundLinks.add(clickable);
+            foundList.add(clickable);
         }
     }
 
     public void build() {
-        if (mViewType == ViewType.EDIT_TEXT) {
-            mText = mSpannable.toString();
-            removePreviousSpans();
-        } else {
-            mSpannable = null;
-        }
+        mSpannable = null;
 
         convertPatternsToLinks();
 
-        for (Clickable clickable : mFoundLinks) {
+        for (Clickable clickable : foundList) {
             addLinkToSpan(clickable);
         }
     }
