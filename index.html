@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Naraetextview by WindSekirun</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Naraetextview</h1>
+      <h2 class="project-tagline">Clickable, Built-in Regex Pattern TextView (use Twitter @Username, #Hashtag, http(s) .. etc)</h2>
+      <a href="https://github.com/WindSekirun/NaraeTextView" class="btn">View on GitHub</a>
+      <a href="https://github.com/WindSekirun/NaraeTextView/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/WindSekirun/NaraeTextView/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="naraetextview" class="anchor" href="#naraetextview" aria-hidden="true"><span class="octicon octicon-link"></span></a>NaraeTextView</h1>
+
+<p>특정한 정규식을 이용해 텍스트뷰에서 정규식과 일치하는 부분에 리스너를 달 수 있는 간단한 라이브러리 입니다.</p>
+
+<h2>
+<a id="샘플" class="anchor" href="#%EC%83%98%ED%94%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>샘플</h2>
+
+<p><img src="http://i.imgur.com/nOpJuMgm.png" alt="alt text"></p>
+
+<p><a href="https://github.com/WindSekirun/NaraeTextView/releases">이 곳</a> 에서 확인이 가능합니다.</p>
+
+<h2>
+<a id="사용법" class="anchor" href="#%EC%82%AC%EC%9A%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>사용법</h2>
+
+<p><strong>1. XML 선언</strong></p>
+
+<div class="highlight highlight-XML"><pre>&lt;<span class="pl-ent">com</span>.github.windsekirun.naraetextview.NaraeTextView
+            <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_width</span>=<span class="pl-s"><span class="pl-pds">"</span>wrap_content<span class="pl-pds">"</span></span>
+            <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_height</span>=<span class="pl-s"><span class="pl-pds">"</span>wrap_content<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<p><strong>2. Clickable 객체 생성</strong></p>
+
+<div class="highlight highlight-JAVA"><pre><span class="pl-smi">Clickable</span> clickable <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Clickable</span>(<span class="pl-s"><span class="pl-pds">"</span>Regex<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>setTextColor(<span class="pl-smi">ColorValue</span>)<span class="pl-k">.</span>setOnLinkClickListener(<span class="pl-k">new</span> <span class="pl-smi">OnLinkClickListener</span>() {
+            <span class="pl-k">@Override</span>
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onClick</span>(<span class="pl-smi">String</span> <span class="pl-v">text</span>) {
+                <span class="pl-smi">Log</span><span class="pl-k">.</span>d(<span class="pl-s"><span class="pl-pds">"</span>NaraeTextView<span class="pl-pds">"</span></span>, text);
+            }
+        });</pre></div>
+
+<p><strong>3. NaraeTextView 링크 부착</strong></p>
+
+<div class="highlight highlight-JAVA"><pre><span class="pl-smi">NaraeTextView</span> narae <span class="pl-k">=</span> (<span class="pl-smi">NaraeTextView</span>) findViewById(<span class="pl-smi">R</span><span class="pl-k">.</span>id<span class="pl-k">.</span>textView);
+narae<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>);
+narae<span class="pl-k">.</span>addPattern(clickable)
+<span class="pl-c">//narae.addPatterns(clickableList) ArrayList&lt;Clickable&gt;</span>
+narae<span class="pl-k">.</span>build();</pre></div>
+
+<p>또는 </p>
+
+<div class="highlight highlight-JAVA"><pre><span class="pl-smi">NaraeTextView</span> narae <span class="pl-k">=</span> (<span class="pl-smi">NaraeTextView</span>) findViewById(<span class="pl-smi">R</span><span class="pl-k">.</span>id<span class="pl-k">.</span>textView)<span class="pl-k">.</span>setText(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>)<span class="pl-k">.</span>addPattern(clickable)<span class="pl-k">.</span>build();</pre></div>
+
+<h2>
+<a id="빠른-사용" class="anchor" href="#%EB%B9%A0%EB%A5%B8-%EC%82%AC%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>빠른 사용</h2>
+
+<p>이 라이브러리는 사용 편의를 위해 내장 기능을 제공하고 있습니다.</p>
+
+<h3>
+<a id="내장-clickable" class="anchor" href="#%EB%82%B4%EC%9E%A5-clickable" aria-hidden="true"><span class="octicon octicon-link"></span></a>내장 Clickable</h3>
+
+<p><strong>해시태그 Clickable</strong></p>
+
+<div class="highlight highlight-JAVA"><pre><span class="pl-smi">Clickable</span> clickable <span class="pl-k">=</span> <span class="pl-smi">BuildClickable</span><span class="pl-k">.</span>getClickableObject(<span class="pl-smi">PatternKind</span><span class="pl-c1"><span class="pl-k">.</span>HASHTAG</span>, colorvalue, <span class="pl-k">new</span> <span class="pl-smi">OnLinkClickListener</span>() {
+            <span class="pl-k">@Override</span>
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onClick</span>(<span class="pl-smi">String</span> <span class="pl-v">text</span>) {
+                <span class="pl-c">//SOMETHING TODO</span>
+            }
+        });</pre></div>
+
+<p><strong>@Username Clickable</strong></p>
+
+<div class="highlight highlight-JAVA"><pre><span class="pl-smi">Clickable</span> clickable <span class="pl-k">=</span> <span class="pl-smi">BuildClickable</span><span class="pl-k">.</span>getClickableObject(<span class="pl-smi">PatternKind</span><span class="pl-c1"><span class="pl-k">.</span>USERNAME</span>, colorvalue, <span class="pl-k">new</span> <span class="pl-smi">OnLinkClickListener</span>() {
+            <span class="pl-k">@Override</span>
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onClick</span>(<span class="pl-smi">String</span> <span class="pl-v">text</span>) {
+                <span class="pl-c">//SOMETHING TODO</span>
+            }
+        });</pre></div>
+
+<p><strong>URL Clickable</strong></p>
+
+<div class="highlight highlight-JAVA"><pre><span class="pl-smi">Clickable</span> clickable <span class="pl-k">=</span> <span class="pl-smi">BuildClickable</span><span class="pl-k">.</span>getClickableObject(<span class="pl-smi">PatternKind</span><span class="pl-c1"><span class="pl-k">.</span>HTTP</span>, colorvalue, <span class="pl-k">new</span> <span class="pl-smi">OnLinkClickListener</span>() {
+            <span class="pl-k">@Override</span>
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onClick</span>(<span class="pl-smi">String</span> <span class="pl-v">text</span>) {
+                <span class="pl-c">//SOMETHING TODO</span>
+            }
+        });</pre></div>
+
+<h3>
+<a id="트위터-링크-전처리기" class="anchor" href="#%ED%8A%B8%EC%9C%84%ED%84%B0-%EB%A7%81%ED%81%AC-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>트위터 링크 전처리기</h3>
+
+<div class="highlight highlight-JAVA"><pre><span class="pl-smi">NaraeTextView</span> textView <span class="pl-k">=</span> (<span class="pl-smi">NaraeTextView</span>) findViewById(<span class="pl-smi">R</span><span class="pl-k">.</span>id<span class="pl-k">.</span>textView);
+<span class="pl-smi">ColorSets</span> colorset <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">ColorSets</span>();
+colorSets<span class="pl-k">.</span>setHashtagColor(0xffE91E63)<span class="pl-k">.</span>setMentionColor(0xff9C27B0)<span class="pl-k">.</span>setUrlColor(0xffF44336);
+<span class="pl-smi">TwitterLinkPreprocessor</span><span class="pl-k">.</span>process(textView, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>, colorset, <span class="pl-k">new</span> <span class="pl-smi">OnProcessListener</span>() {
+                    <span class="pl-k">@Override</span>
+                    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onHashTag</span>(<span class="pl-smi">String</span> <span class="pl-v">text</span>) {
+                        <span class="pl-smi">Uri</span> uri <span class="pl-k">=</span> <span class="pl-smi">Uri</span><span class="pl-k">.</span>parse(<span class="pl-s"><span class="pl-pds">"</span>http://www.twitter.com/search?q=<span class="pl-pds">"</span></span> <span class="pl-k">+</span> text);
+                        <span class="pl-smi">Intent</span> it <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Intent</span>(<span class="pl-smi">Intent</span><span class="pl-c1"><span class="pl-k">.</span>ACTION_VIEW</span>, uri);
+                        startActivity(it);
+                    }
+
+                    <span class="pl-k">@Override</span>
+                    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onMention</span>(<span class="pl-smi">String</span> <span class="pl-v">text</span>) {
+                        <span class="pl-smi">Uri</span> uri <span class="pl-k">=</span> <span class="pl-smi">Uri</span><span class="pl-k">.</span>parse(<span class="pl-s"><span class="pl-pds">"</span>http://www.twitter.com/search?q=<span class="pl-pds">"</span></span> <span class="pl-k">+</span> text);
+                        <span class="pl-smi">Intent</span> it <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Intent</span>(<span class="pl-smi">Intent</span><span class="pl-c1"><span class="pl-k">.</span>ACTION_VIEW</span>, uri);
+                        startActivity(it);
+                    }
+
+                    <span class="pl-k">@Override</span>
+                    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onURL</span>(<span class="pl-smi">String</span> <span class="pl-v">text</span>) {
+                        <span class="pl-smi">Uri</span> uri <span class="pl-k">=</span> <span class="pl-smi">Uri</span><span class="pl-k">.</span>parse(text);
+                        <span class="pl-smi">Intent</span> it <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Intent</span>(<span class="pl-smi">Intent</span><span class="pl-c1"><span class="pl-k">.</span>ACTION_VIEW</span>, uri);
+                        startActivity(it);
+                    }
+                });</pre></div>
+
+<h2>
+<a id="라이센스" class="anchor" href="#%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>라이센스</h2>
+
+<p>이 라이브러리는 <a href="https://github.com/WindSekirun/NaraeTextView/blob/master/LICENSE.MD">MIT LICENSE</a>를 사용하고 있습니다.</p>
+
+<p>샘플 앱은 아래와 같은 라이브러리를 사용합니다.</p>
+
+<ul>
+<li><a href="https://github.com/JakeWharton/butterknife">ButterKnife</a></li>
+<li><a href="https://commons.apache.org/proper/commons-lang">Apache Common Lang</a></li>
+</ul>
+
+<h2>
+<a id="리버전" class="anchor" href="#%EB%A6%AC%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>리버전</h2>
+
+<p><strong>v 1.0.1 (2015. 08. 05)</strong></p>
+
+<ul>
+<li>setPattern(String patten) 추가</li>
+</ul>
+
+<p><strong>v 1.0.0 (2015. 08. 05)</strong></p>
+
+<ul>
+<li>첫 릴리즈</li>
+<li>샘플 앱 배포</li>
+</ul>
+
+<h2>
+<a id="기여-안내" class="anchor" href="#%EA%B8%B0%EC%97%AC-%EC%95%88%EB%82%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>기여 안내</h2>
+
+<p>기여는 언제든지 환영합니다! <a href="https://github.com/WindSekirun/NaraeTextView/issues">Issue Tracker</a> <a href="https://github.com/WindSekirun/NaraeTextView/pulls">Pull Request</a> 전부 환영합니다!</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/WindSekirun/NaraeTextView">Naraetextview</a> is maintained by <a href="https://github.com/WindSekirun">WindSekirun</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
