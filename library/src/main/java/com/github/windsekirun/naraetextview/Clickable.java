@@ -42,8 +42,9 @@ public class Clickable {
         this.pattern = pattern;
     }
 
-    public void setText(String text) {
+    public Clickable setText(String text) {
         this.text = text;
+        return null;
     }
 
     public OnLinkClickListener getLinkClickListener() {
