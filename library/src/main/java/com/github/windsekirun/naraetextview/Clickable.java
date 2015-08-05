@@ -45,6 +45,11 @@ public class Clickable {
         return this;
     }
 
+    public Clickable setPattern(String pattern) {
+        this.pattern = Pattern.compile(pattern);
+        return this;
+    }
+
     public String getText() {
         return text;
     }
