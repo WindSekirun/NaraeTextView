@@ -1,5 +1,6 @@
-package com.github.windsekirun.naraetextview;
+package com.github.windsekirun.naraetextview.bulitin;
 
+import com.github.windsekirun.naraetextview.Clickable;
 import com.github.windsekirun.naraetextview.util.OnLinkClickListener;
 import com.github.windsekirun.naraetextview.util.PatternKind;
 
