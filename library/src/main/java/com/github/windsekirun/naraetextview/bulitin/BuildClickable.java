@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
  */
 public class BuildClickable {
 
-    public static Clickable getClickableObject(PatternKind pk, OnLinkClickListener listener) {
+    public static Clickable getClickableObject(PatternKind pk, int color, OnLinkClickListener listener) {
         Pattern pattern = BuildPattern.getPattern(pk);
-        return new Clickable(pattern).setLinkClickListener(listener);
+        return new Clickable(pattern).setTextColor(color).setLinkClickListener(listener);
     }
 }

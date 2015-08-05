@@ -15,24 +15,24 @@ import java.util.ArrayList;
  */
 public class TwitterLinkPreprocessor {
 
-    public static void process(NaraeTextView narae, String text, final OnProcessListener listener) {
+    public static void process(NaraeTextView narae, String text, ColorSets colorset, final OnProcessListener listener) {
         final ArrayList<Clickable> list = new ArrayList<>();
 
-        Clickable hashTagClickable = BuildClickable.getClickableObject(PatternKind.HASHTAG, new OnLinkClickListener() {
+        Clickable hashTagClickable = BuildClickable.getClickableObject(PatternKind.HASHTAG, colorset.getHashtagColor(), new OnLinkClickListener() {
             @Override
             public void onClick(String text) {
                 listener.onHashTag(text);
             }
         });
 
-        Clickable mentionClickable = BuildClickable.getClickableObject(PatternKind.USERNAME, new OnLinkClickListener() {
+        Clickable mentionClickable = BuildClickable.getClickableObject(PatternKind.USERNAME, colorset.getMentionColor(), new OnLinkClickListener() {
             @Override
             public void onClick(String text) {
                 listener.onMention(text);
             }
         });
 
-        Clickable urlClickable = BuildClickable.getClickableObject(PatternKind.HTTP, new OnLinkClickListener() {
+        Clickable urlClickable = BuildClickable.getClickableObject(PatternKind.HTTP, colorset.getUrlColor(), new OnLinkClickListener() {
             @Override
             public void onClick(String text) {
                 listener.onURL(text);

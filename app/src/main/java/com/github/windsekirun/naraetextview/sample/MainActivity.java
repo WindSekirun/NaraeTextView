@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.github.windsekirun.naraetextview.NaraeTextView;
+import com.github.windsekirun.naraetextview.preprocessor.ColorSets;
 import com.github.windsekirun.naraetextview.preprocessor.OnProcessListener;
 import com.github.windsekirun.naraetextview.preprocessor.TwitterLinkPreprocessor;
 
@@ -36,15 +37,20 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.root)
     RelativeLayout root;
 
+    ColorSets colorSets;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        colorSets.setHashtagColor(0xffE91E63).setMentionColor(0xff9C27B0).setUrlColor(0xffF44336);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TwitterLinkPreprocessor.process(textView, edit.getText().toString(), new OnProcessListener() {
+                TwitterLinkPreprocessor.process(textView, edit.getText().toString(), colorSets, new OnProcessListener() {
                     @Override
                     public void onHashTag(String text) {
                         Uri uri = Uri.parse("http://www.twitter.com/search?q=" + text);

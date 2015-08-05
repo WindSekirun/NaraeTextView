@@ -31,6 +31,9 @@ public class ClickableLinkSpan extends ClickableSpan {
     @SuppressWarnings("NullableProblems")
     @Override
     public void updateDrawState(TextPaint ds) {
+        if (clickable.getTextColor() != 0) {
+            ds.setColor(clickable.getTextColor());
+        }
         ds.setUnderlineText(false);
     }
 }
