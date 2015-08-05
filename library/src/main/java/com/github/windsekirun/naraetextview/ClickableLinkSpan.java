@@ -1,6 +1,5 @@
 package com.github.windsekirun.naraetextview;
 
-import android.support.annotation.NonNull;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
@@ -29,8 +28,9 @@ public class ClickableLinkSpan extends ClickableSpan {
         }
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
-    public void updateDrawState(@NonNull TextPaint ds) {
+    public void updateDrawState(TextPaint ds) {
         ds.setUnderlineText(false);
     }
 }
