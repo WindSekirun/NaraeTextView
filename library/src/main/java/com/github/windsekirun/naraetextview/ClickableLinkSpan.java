@@ -7,6 +7,8 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.windsekirun.naraetextview.util.Range;
+
 public class ClickableLinkSpan extends ClickableSpan {
 
     private Clickable clickable;

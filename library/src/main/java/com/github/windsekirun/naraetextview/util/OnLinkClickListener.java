@@ -1,4 +1,4 @@
-package com.github.windsekirun.naraetextview;
+package com.github.windsekirun.naraetextview.util;
 
 /**
  * NaraeTextView

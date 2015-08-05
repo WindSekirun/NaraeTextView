@@ -1,5 +1,7 @@
 package com.github.windsekirun.naraetextview;
 
+import com.github.windsekirun.naraetextview.util.OnLinkClickListener;
+
 import java.util.regex.Pattern;
 
 /**
