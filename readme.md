@@ -1,4 +1,4 @@
-#NaraeTextView
+#NaraeTextView [![Build Status](https://travis-ci.org/AngeloidTeam/NaraeTextView.svg?branch=master)](https://travis-ci.org/AngeloidTeam/NaraeTextView)
 
 특정한 정규식을 이용해 텍스트뷰에서 정규식과 일치하는 부분에 리스너를 달 수 있는 간단한 라이브러리 입니다.
 
